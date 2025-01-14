@@ -1,15 +1,15 @@
-'use server';
+"use server";
 
-import { createSessionClient } from '@/config/appwrite';
-import { cookies } from 'next/headers';
-import { Query } from 'node-appwrite';
-import { redirect } from 'next/navigation';
-import checkAuth from './checkAuth';
+import { createSessionClient } from "@/config/appwrite";
+import { cookies } from "next/headers";
+import { Query } from "node-appwrite";
+import { redirect } from "next/navigation";
+import checkAuth from "./checkAuth";
 
 async function getMyBookings() {
-  const sessionCookie = cookies().get('appwrite-session');
+  const sessionCookie = cookies().get("appwrite-session");
   if (!sessionCookie) {
-    redirect('/login');
+    redirect("/login");
   }
 
   try {
@@ -20,7 +20,7 @@ async function getMyBookings() {
 
     if (!user) {
       return {
-        error: 'You must be logged in to view bookings',
+        error: "Du må være logget inn for å se dine bookinger",
       };
     }
 
@@ -28,14 +28,14 @@ async function getMyBookings() {
     const { documents: bookings } = await databases.listDocuments(
       process.env.NEXT_PUBLIC_APPWRITE_DATABASE,
       process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_BOOKINGS,
-      [Query.equal('user_id', user.id)]
+      [Query.equal("user_id", user.id)]
     );
 
     return bookings;
   } catch (error) {
-    console.log('Failed to get user bookings', error);
+    console.log("Failed to get user bookings", error);
     return {
-      error: 'Failed to get bookings',
+      error: "Kunne ikke hente bookinger",
     };
   }
 }

@@ -1,28 +1,28 @@
-'use server';
-import { createAdminClient } from '@/config/appwrite';
-import { ID } from 'node-appwrite';
+"use server";
+import { createAdminClient } from "@/config/appwrite";
+import { ID } from "node-appwrite";
 
 async function createUser(previousState, formData) {
-  const name = formData.get('name');
-  const email = formData.get('email');
-  const password = formData.get('password');
-  const confirmPassword = formData.get('confirm-password');
+  const name = formData.get("name");
+  const email = formData.get("email");
+  const password = formData.get("password");
+  const confirmPassword = formData.get("confirm-password");
 
   if (!email || !name || !password) {
     return {
-      error: 'Please fill in all fields',
+      error: "Vennligst fyll inn alle feltene",
     };
   }
 
   if (password.length < 8) {
     return {
-      error: 'Password must be at least 8 characters long',
+      error: "Passord må være minimum 8 tegn langt",
     };
   }
 
   if (password !== confirmPassword) {
     return {
-      error: 'Passwords do not match',
+      error: "Passordene er ikke like",
     };
   }
 
@@ -37,9 +37,9 @@ async function createUser(previousState, formData) {
       success: true,
     };
   } catch (error) {
-    console.log('Registration Error: ', error);
+    console.log("Registration Error: ", error);
     return {
-      error: 'Could not register user',
+      error: "Kunne ikke registrere bruker",
     };
   }
 }

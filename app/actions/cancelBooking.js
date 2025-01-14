@@ -1,15 +1,15 @@
-'use server';
+"use server";
 
-import { createSessionClient } from '@/config/appwrite';
-import { cookies } from 'next/headers';
-import { redirect } from 'next/navigation';
-import { revalidatePath } from 'next/cache';
-import checkAuth from './checkAuth';
+import { createSessionClient } from "@/config/appwrite";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
+import { revalidatePath } from "next/cache";
+import checkAuth from "./checkAuth";
 
 async function cancelBooking(bookingId) {
-  const sessionCookie = cookies().get('appwrite-session');
+  const sessionCookie = cookies().get("appwrite-session");
   if (!sessionCookie) {
-    redirect('/login');
+    redirect("/login");
   }
 
   try {
@@ -20,7 +20,7 @@ async function cancelBooking(bookingId) {
 
     if (!user) {
       return {
-        error: 'You must be logged in to cancel a booking',
+        error: "Du må være logget inn for å kansellere en booking",
       };
     }
 
@@ -34,7 +34,7 @@ async function cancelBooking(bookingId) {
     // Check if booking belongs to current user
     if (booking.user_id !== user.id) {
       return {
-        error: 'You are not authorized to cancel this booking',
+        error: "Du har ikke tillatelse til å kansellere denne bookingen",
       };
     }
 
@@ -45,15 +45,15 @@ async function cancelBooking(bookingId) {
       bookingId
     );
 
-    revalidatePath('/bookings', 'layout');
+    revalidatePath("/bookings", "layout");
 
     return {
       success: true,
     };
   } catch (error) {
-    console.log('Failed to cancel booking', error);
+    console.log("Failed to cancel booking", error);
     return {
-      error: 'Failed to cancel booking',
+      error: "Failed to cancel booking",
     };
   }
 }
