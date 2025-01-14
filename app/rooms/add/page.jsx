@@ -28,14 +28,14 @@ const AddRoomPage = () => {
             <label
               htmlFor='name'
               className='block text-gray-700 font-bold mb-2'>
-              Room Navn
+              Rom Navn
             </label>
             <input
               type='text'
               id='name'
               name='name'
               className='border rounded w-full py-2 px-3'
-              placeholder='Enter a name (Large Conference Room)'
+              placeholder='Skriv navn på rom (Large Conference Room)'
               required
             />
           </div>
@@ -50,7 +50,7 @@ const AddRoomPage = () => {
               id='description'
               name='description'
               className='border rounded w-full h-24 py-2 px-3'
-              placeholder='Enter a description for the room'
+              placeholder='Legg til en beskrivelse'
               required></textarea>
           </div>
 
@@ -65,7 +65,7 @@ const AddRoomPage = () => {
               id='sqft'
               name='sqft'
               className='border rounded w-full py-2 px-3'
-              placeholder='Enter room size in ft'
+              placeholder='Størrelse på rom i kvadratmeter'
               required
             />
           </div>
@@ -81,7 +81,7 @@ const AddRoomPage = () => {
               id='capacity'
               name='capacity'
               className='border rounded w-full py-2 px-3'
-              placeholder='Number of people the room can hold'
+              placeholder='Hvor mange personer kan det være i rommet'
               required
             />
           </div>
@@ -97,7 +97,7 @@ const AddRoomPage = () => {
               id='price_per_hour'
               name='price_per_hour'
               className='border rounded w-full py-2 px-3'
-              placeholder='Enter price per hour'
+              placeholder='Skriv inn en pris pr time'
               required
             />
           </div>
@@ -113,7 +113,7 @@ const AddRoomPage = () => {
               id='address'
               name='address'
               className='border rounded w-full py-2 px-3'
-              placeholder='Enter full address'
+              placeholder='Skriv inn full adresse'
               required
             />
           </div>
@@ -129,7 +129,7 @@ const AddRoomPage = () => {
               id='location'
               name='location'
               className='border rounded w-full py-2 px-3'
-              placeholder='Location (Building, Floor, Room)'
+              placeholder='Hvor i bygget er rommet?'
               required
             />
           </div>
@@ -145,7 +145,7 @@ const AddRoomPage = () => {
               id='availability'
               name='availability'
               className='border rounded w-full py-2 px-3'
-              placeholder='Availability (Monday - Friday, 9am - 5pm)'
+              placeholder='Tilgjengelighet: 10:00 - 12:00'
               required
             />
           </div>
@@ -154,14 +154,14 @@ const AddRoomPage = () => {
             <label
               htmlFor='amenities'
               className='block text-gray-700 font-bold mb-2'>
-              Amenities
+              Rommet inkluderer
             </label>
             <input
               type='text'
               id='amenities'
               name='amenities'
               className='border rounded w-full py-2 px-3'
-              placeholder='Amenities CSV (projector, whiteboard, etc.)'
+              placeholder='Tillegg i rommet. (prosjektor, tv, lydanlegg etc)'
               required
             />
           </div>

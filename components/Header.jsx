@@ -33,7 +33,7 @@ const Header = () => {
               <Image
                 className='h-12 w-12'
                 src={logo}
-                alt='Bookit'
+                alt='Jotun'
                 priority={true}
               />
             </Link>
