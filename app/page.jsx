@@ -8,6 +8,7 @@ export default async function Home() {
   return (
     <>
       <Heading title='Tilgjengelige rom for booking' />
+
       {rooms.length > 0 ? (
         rooms.map((room) => <RoomCard room={room} key={room.$id} />)
       ) : (
