@@ -32,8 +32,8 @@ const RoomCard = ({ room }) => {
             {room.availability}
           </p>
           <p className='text-sm text-gray-600'>
-            <span className='font-semibold text-gray-800'> Pris:</span>NOK
-            {room.price_per_hour}/pr time
+            <span className='font-semibold text-gray-800'> Pris:</span>
+            {room.price_per_hour},- pr time
           </p>
         </div>
       </div>
