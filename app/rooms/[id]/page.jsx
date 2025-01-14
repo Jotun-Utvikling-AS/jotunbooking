@@ -56,8 +56,8 @@ const RoomPage = async ({ params }) => {
                 {room.availability}
               </li>
               <li>
-                <span className='font-semibold text-gray-800'>Pris:</span>NOK
-                {room.price_per_hour}pr. time
+                <span className='font-semibold text-gray-800'>Pris: </span>
+                {room.price_per_hour},- pr. time
               </li>
               <li>
                 <span className='font-semibold text-gray-800'>Addresse:</span>{" "}
